@@ -45,3 +45,8 @@
     console.log(typeof (num1) + ":" + num1); 
 ```
    number:2
+
+
+*   aaa
+*       aa
+*           a
