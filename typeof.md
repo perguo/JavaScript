@@ -46,7 +46,3 @@
 ```
    number:2
 
-
-*   aaa
-*       aa
-*           a
