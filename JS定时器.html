@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS定时器</title>
+</head>
+<body>
+<!--setInterval(function() {}, 1000)检测时间-->
+<!--<script type="text/javascript">
+    var firstTime = new Date().getTime();
+    setInterval(function () {
+        var lastTime = new Date().getTime();
+        console.log(lastTime - firstTime);
+        firstTime = lastTime;
+    }, 1000)
+</script>-->
+
+<!-- clearInterval() -->
+<!--<script type="text/javascript">
+    var i = 0;
+    var timer = setInterval(function () {
+        console.log(i++);
+        if (i > 9) {
+            clearInterval(timer);
+        }
+    }, 1000)
+</script>-->
+
+<!-- setTimeout(); 推迟一段时间执行 -->
+<!--<script type="text/javascript">
+    var sec = 0;
+    var timer = setInterval(function () {
+        sec ++;
+        console.log('试看'+ sec + '秒');
+    },1000);
+    setTimeout(function () {
+        console.log('试看一分钟结束')
+        clearInterval(timer);
+
+    }, 60000)// 推迟1min执行
+</script>-->
+
+<!-- clearTimeout() -->
+<!--<script type="text/javascript">
+    var timer = setTimeout(function () {
+        console.log('a');
+    }, 100);
+    clearTimeout(timer);
+</script>-->
+
+<!-- 练习：设置一个计时器，显示分和秒，到3分钟的时候停止 -->
+<!--minutes:<input type="text" value="0" style="font-size: 20px;font-weight: bold;text-align: right">
+seconds:<input type="text" value="0" style="font-size: 20px;font-weight: bold;text-align: right">
+<script type="text/javascript">
+    var minutesNode = document.getElementsByTagName('input')[0];
+    var secondsNode = document.getElementsByTagName('input')[1];
+    var seconds = 0;
+    var minutes = 0;
+    var timer = setInterval(function () {
+        seconds ++;
+        if(seconds === 60) {
+            seconds = 0;
+            minutes ++;
+        }
+        minutesNode.value = minutes;
+        secondsNode.value = seconds;
+        if (minutes === 3){
+            clearInterval(timer);
+        }
+    }, 1000)
+</script>-->
+
+
+</body>
+</html>

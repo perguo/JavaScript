@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es5 + 查看元素几何属性</title>
+</head>
+<body>
+
+<!--<script type="text/javascript">
+    "use strict";
+    function demo() {
+        console.log(arguments.callee);
+    }
+    demo(); // 报错
+</script>-->
+
+<!--<script type="text/javascript">
+    function test() {
+        "use strict";
+        console.log('a');
+    }
+    function demo() {
+        console.log(arguments.callee);
+    }
+    demo();// 不报错
+</script>-->
+
+<!-- with可以改变作用域链 -->
+<!--<script type="text/javascript">
+    var obj = {
+        name: "obj"
+    };
+    var name = "window";
+    function test() {
+        var age = 20;
+        var name = "scope";
+        with(obj) {
+            console.log(name); // obj
+            console.log(age); // 20
+        }
+    }
+    test();
+</script>-->
+
+<!-- 局部this需被赋值 -->
+<!--<script type="text/javascript">
+    "use strict";
+    function test() {
+        console.log(this); //this没有指向
+    }
+    test();// undefined
+    new test();//test{}
+</script>-->
+
+<!-- es5拒绝重复参数 -->
+<!--<script type="text/javascript">
+    "use strict";
+    function test(name, name) {
+        console.log(name);
+    }
+    test(1,2);
+</script>-->
+
+<!-- es5拒绝重复参数 -->
+<!--<script type="text/javascript">
+    "use strict";
+    var obj = {
+        name: 'aaa',
+        name: 'bbb'
+    }
+    //目前不报错
+</script>-->
+
+<!-- try ... catch -->
+<!--<script type="text/javascript">
+    try{
+        console.log('a');
+        console.log(b);
+        console.log('c');
+    }catch(e){ //e &ndash;&gt; error
+        console.log(e.name + ": " + e.message);
+    }
+    console.log('d');
+</script>-->
+
+<!-- dooEle.getBoundingClientRect();查看元素几何属性 -->
+<!--<div style="width: 100px;height: 100px;background-color: red"></div>
+<script type="text/javascript">
+    var div = document.getElementsByTagName('div')[0];
+</script>-->
+
+<!-- scrollBy(); 实现自动翻书功能 -->
+<!--<div style="width: auto;height: 10000px;background-color: orange"></div>
+<div style="width: 50px;height: 50px;border-radius: 50%;background-color: limegreen;opacity: 0.5;position: fixed;bottom: 200px;right: 0;line-height: 50px;font-size: 20px;font-weight: bold;">start</div>
+<div style="width: 50px;height: 50px;border-radius: 50%;background-color: red;opacity: 0.5;position: fixed;bottom: 80px;right: 0;line-height: 50px;font-size: 20px;font-weight: bold;">stop</div>
+<script type="text/javascript">
+    var start = document.getElementsByTagName('div')[1];
+    var stop = document.getElementsByTagName('div')[2];
+    var timer = 0;
+    var key = true;
+    start.onclick = function () {
+        if (key){
+            timer = setInterval(function () {
+                window.scrollBy(0, 10);
+                key = false;
+            }, 100)
+        }
+    };
+    stop.onclick = function () {
+        clearInterval(timer);
+        key = true;
+    }
+</script>-->
+
+<!-- 封装兼容性函数，求滚动条滚动的距离getScrollOffset() -->
+<!--<script type="text/javascript">
+    function getScrollOffset() {
+        if (window.pageXOffset) {
+            return {
+                X: window.pageXOffset,
+                Y: window.pageYOffset
+            }
+        } else{
+            return {
+                X: document.body.scrollLeft + document.documentElement.scrollLeft,
+                Y: document.body.scrollTop + document.documentElement.scrollTop
+            }
+        }
+    }
+</script>-->
+
+<!-- 疯转兼容性方法，返回浏览器视口尺寸getViewportOffset() -->
+<!--<script type="text/javascript">
+    function getViewportOffset() {
+        if (window.innerWidth) {
+            return {
+                width: window.innerWidth,
+                height: window.innerHeight
+            }
+        } else { //compatMode: 兼容模式；BackCompat: 向后兼容(怪异模式)
+            if (document.compatMode === 'BackCompat') {
+                return {
+                    width: document.body.clientWidth,
+                    height: document.body.clientHeight
+                }
+            } else{
+                return {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                }
+            }
+        }
+    }
+</script>-->
+
+</body>
+</html>

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9ea23b2-70a0-487b-9a90-26e0feb7cd01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DOM.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DOM习题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Date().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JS定时器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/es5 + 查看元素几何属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/es5严格模式+查看元素（几何）属性.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js定时器.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/日期对象Date().md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,7 +20,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/es5严格模式+查看元素（几何）属性.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="365">
+                <caret line="174" selection-start-line="174" selection-end-line="174" />
+                <folding>
+                  <element signature="e#493#606#0" />
+                  <element signature="e#603#786#0" />
+                  <element signature="e#1457#1604#0" />
+                  <element signature="e#1605#1747#0" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/es5 + 查看元素几何属性.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="144" column="17" lean-forward="true" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
+              <folding>
+                <element signature="e#117#262#0" />
+                <element signature="e#270#479#0" />
+                <element signature="e#503#813#0" />
+                <element signature="e#835#1004#0" />
+                <element signature="e#1036#1182#0" />
+                <element signature="e#1203#1344#0" />
+                <element signature="e#1369#1615#0" />
+                <element signature="e#1617#1789#0" />
+                <element signature="e#1870#2832#0" />
+                <element signature="e#2875#3333#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,6 +79,12 @@
         <option value="$PROJECT_DIR$/DOM.html" />
         <option value="$PROJECT_DIR$/DOM习题.html" />
         <option value="$PROJECT_DIR$/DOM.md" />
+        <option value="$PROJECT_DIR$/Date().html" />
+        <option value="$PROJECT_DIR$/日期对象Date().md" />
+        <option value="$PROJECT_DIR$/js定时器.md" />
+        <option value="$PROJECT_DIR$/JS定时器.html" />
+        <option value="$PROJECT_DIR$/es5严格模式+查看元素（几何）属性.md" />
+        <option value="$PROJECT_DIR$/es5 + 查看元素几何属性.html" />
       </list>
     </option>
   </component>
@@ -69,7 +119,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../127" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -97,7 +147,8 @@
       <updated>1566817523613</updated>
       <workItem from="1566817529831" duration="819000" />
       <workItem from="1566818391381" duration="7000" />
-      <workItem from="1566863711060" duration="19631000" />
+      <workItem from="1566863711060" duration="19896000" />
+      <workItem from="1566951244435" duration="21331000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1566818172678</created>
@@ -106,14 +157,29 @@
       <option name="project" value="LOCAL" />
       <updated>1566818172678</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="DOM第一次提交">
+      <created>1566911636762</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566911636762</updated>
+    </task>
+    <task id="LOCAL-00003" summary="DOM第一次提交">
+      <created>1566911801910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566911801910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20457000" />
+    <option name="totallyTimeSpent" value="42053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118303575" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -139,7 +205,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一次提交" />
+    <MESSAGE value="DOM第一次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="DOM第一次提交" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/函数.md">
@@ -147,23 +214,6 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DOM习题.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="196" column="12" lean-forward="true" selection-start-line="196" selection-start-column="12" selection-end-line="196" selection-end-column="12" />
-          <folding>
-            <element signature="e#1303#1983#0" />
-            <element signature="e#2059#3212#0" />
-            <element signature="e#3263#3558#0" />
-            <element signature="e#3635#3936#0" />
-            <element signature="e#3988#4057#0" />
-            <element signature="e#4056#4448#0" />
-            <element signature="e#4505#4896#0" />
-            <element signature="e#4997#5286#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -198,6 +248,102 @@
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DOM习题.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="196" column="12" lean-forward="true" selection-start-line="196" selection-start-column="12" selection-end-line="196" selection-end-column="12" />
+          <folding>
+            <element signature="e#1303#1983#0" />
+            <element signature="e#2059#3212#0" />
+            <element signature="e#3263#3558#0" />
+            <element signature="e#3635#3936#0" />
+            <element signature="e#3988#4057#0" />
+            <element signature="e#4505#4896#0" />
+            <element signature="e#4997#5286#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Date().html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding>
+            <element signature="e#151#370#0" />
+            <element signature="e#388#630#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期对象Date().md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="275">
+            <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js定时器.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="109">
+            <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS定时器.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#151#402#0" />
+            <element signature="e#429#638#0" />
+            <element signature="e#672#962#0" />
+            <element signature="e#988#1141#0" />
+            <element signature="e#1179#1904#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/es5严格模式+查看元素（几何）属性.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="365">
+            <caret line="174" selection-start-line="174" selection-end-line="174" />
+            <folding>
+              <element signature="e#493#606#0" />
+              <element signature="e#603#786#0" />
+              <element signature="e#1457#1604#0" />
+              <element signature="e#1605#1747#0" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/es5 + 查看元素几何属性.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="144" column="17" lean-forward="true" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
+          <folding>
+            <element signature="e#117#262#0" />
+            <element signature="e#270#479#0" />
+            <element signature="e#503#813#0" />
+            <element signature="e#835#1004#0" />
+            <element signature="e#1036#1182#0" />
+            <element signature="e#1203#1344#0" />
+            <element signature="e#1369#1615#0" />
+            <element signature="e#1617#1789#0" />
+            <element signature="e#1870#2832#0" />
+            <element signature="e#2875#3333#0" />
+          </folding>
         </state>
       </provider>
     </entry>
