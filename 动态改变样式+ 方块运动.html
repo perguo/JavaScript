@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态 & 方块运动</title>
+    <!--<style>
+        div{
+            width: 10em;
+        }
+        div::after{
+            content: "";
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            display: inline-block;
+        }
+        /*.active{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }*/
+    </style>
+</head>
+<body>
+<div></div>
+<script type="text/javascript">
+    var div = document.getElementsByTagName('div')[0];
+    // window.getComputedStyle(div, "after").width;
+    /*div.onclick = function () {
+        div.className = "active";
+    } //动态操作样式，直接改变class
+    */
+</script>-->
+</head>
+<body>
+<!-- 小方块运动 -->
+<script type="text/javascript">
+    var div = document.createElement('div');
+    document.body.append(div);
+    div.style.width = "100px";
+    div.style.height = "100px";
+    div.style.backgroundColor = "red";
+    div.style.position = "absolute";
+    div.style.top = "0";
+    div.style.left = "0";
+    /*setInterval(function () {
+        div.style.left = parseInt(div.style.left) + 2 + "px";
+        div.style.top = parseInt(div.style.top) + 2 + "px";
+    }, 100) //每隔1ms */
+    //设置按键控制木块运动
+    let speed = 2;
+    document.onkeydown = function (e) {
+        switch (e.which) {
+            case 38:
+                div.style.top = parseInt(div.style.top) - speed + 'px';
+                break;
+            case 40:
+                div.style.top = parseInt(div.style.top) + speed + 'px';
+                break;
+            case 37:
+                div.style.left = parseInt(div.style.left) - speed + 'px';
+                break;
+            case 39:
+                div.style.left = parseInt(div.style.left) + speed + 'px';
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

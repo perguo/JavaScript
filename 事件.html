@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+<!-- 点击标签时，在控制台打印标签的文本内容 -->
+<!--<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+<script type="text/javascript">
+    /*var li = document.getElementsByTagName('li');
+    var len = li.length;
+    for (var i = 0; i < len; i ++) {
+        li[i].onclick = function () {
+            console.log(this.innerText);
+        }
+    }*/
+    // 还可以这样写
+    /*var ul = document.getElementsByTagName('ul')[0];
+    ul.onclick = function (e) {
+        var event = e || window.event;
+        var target = event.target || event.srcElement;
+        console.log(target.innerText);
+    }*/
+</script>-->
+
+<!-- mousedown, mousemove, mouseup -->
+<!--<div style="width: 100px;height: 100px;background-color: lime;position: absolute;top: 0;left: 0;"></div>
+<script type="text/javascript">
+    var div =  document.getElementsByTagName(div)[0];
+    var disX,
+        disY;
+    div.onclick = function (e) {
+        var e = event || window.event;
+        disX = e.pageX - parseInt(div.style.left);
+        disY = e.pageY - parseInt(div.style.top);
+
+        document.onmousemove = function (e) {
+            //var event = e || window.event;
+            div.style.left = e.pageX - disX + "px";
+            div.style.top = e.pageY - disY + "px";
+        };
+        document.onmouseup = function () {
+            div.onmousemove = null;
+        }
+    }
+</script>-->
+
+
+
+
+
+<!--<script type="text/javascript">
+    var div = document.getElementsByTagName('div')[0];
+    div.onclick = function () {
+        console.log('1');
+        div.style.backgroundColor = "red";
+    }
+</script>-->
+
+
+<!-- keypress -->
+<!--<script type="text/javascript">
+    document.onkeypress = function (e) {
+        console.log(String.fromCharCode(e.charCode));
+    }
+
+</script>-->
+
+<!-- 文本操作事件：input, onchange, focus, blur -->
+<!--
+<input>
+<script type="text/javascript">
+    var input = document.getElementsByTagName('input')[0];
+    //input文本框中输入什么时，控制台就打印什么
+    input.oninput = function (e) {
+        console.log(this.value);
+    };
+    //状态改变时会触发函数，聚焦、失焦时会触发
+    input.onchange = function (e) {
+        console.log("状态改变！！！")
+    }
+</script>-->
+
+<!--输入框的聚焦、失焦-->
+<!--<input type="text" value="请输入关键字" onfocus="if (this.value === '请输入关键字'){ this.value='';}"
+       onblur="if (this.value === ''){ this.value = '请输入关键字'}">-->
+
+<!-- scroll -->
+<!--<script type="text/javascript">
+    window.onscroll = function () {
+        console.log(window,pageXOffset + " " + window.pageYOffset);
+        // 获取滚动条当前位置
+    }
+</script>-->
+
+<!-- js异步加载 -->
+<!--<script>
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = 'demo.js'; //异步下载
+    document.head.appendChild(script);
+    //test();
+    /*setTimeout(function () {
+        test();
+    },10)*/
+    script.onload = function () {
+        test();
+    }
+
+</script>-->
+<!-- 异步加载js 兼容版 -->
+<!--<script type="text/javascript">
+    function loadScript(url, callback) {
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        if (script.readyState) {
+            script.onreadystatechange = function () {
+                if (script.readyState === "complete" || script.readyState === "loaded") {
+                    callback();
+                }
+            }
+        } else {
+            script.onload = function () {
+                callback();
+            }
+        }
+        script.src = url;
+        document.head.appendChild(script);
+    }
+    loadScript('demo.js', function () {
+        test();
+    })
+</script>-->
+
+
+<!-- js加载时间线 -->
+<!--<script type="text/javascript">
+    console.log(document.readyState);
+
+    document.onreadystatechange = function () {
+        console.log(document.readyState);
+    };
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('同步脚本执行阶段&ndash;&gt;事件驱动阶段');
+    }, false)
+    //对应结果：
+    //loading
+    //interactive
+    //同步脚本执行阶段&ndash;&gt;事件驱动阶段
+    //complete
+</script>-->
+
+
+</body>
+</html>
