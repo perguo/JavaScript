@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #date{
+            width: 560px;
+            margin: 30px auto;
+        }
+        li{
+            list-style: none;
+            float: left;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        #date span{
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 22px;
+            float: left;
+        }
+        .active{
+            background: #0078d7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="date">
+    <ul>
+        <li>日</li>
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+        <li>四</li>
+        <li>五</li>
+        <li>六</li>
+    </ul>
+    <div></div>
+</div>
+
+<script type="text/javascript">
+    const div = document.querySelector('#date div');
+    let d = new Date();
+
+    // 获取这个月有多少天（Date()可用来获取日期，也可以设置日期）
+    //想要获取哪一个月份，就向month参数传几
+    function getEndDay(year, month) { //注意：month: 0-11 -> 1-12
+        return new Date(year, month, 0).getDate();
+    }
+
+    //这个月的第一天是周几
+    function getWeek(year, month) {
+        return new Date(year, month-1, 1).getDay();
+    }
+
+    //获取上个月的最后一天是几号
+    let lastEndDay = getEndDay(d.getFullYear(), d.getMonth());
+
+    //这个月的最后一天是几号
+    let curEndDay = getEndDay(d.getFullYear(), d.getMonth() + 1);
+
+    //这个月的第一天是周几
+    let week = getWeek(d.getFullYear(), d.getMonth()+1);
+    week = week === 0 ? 7 : week;
+
+    let curDay = 1;// 下个月的日期从1开始
+    let dayStr = ''; //存所有的span标签
+    for (let i = 0;i < 42; i++) {
+        if (i < week) { //这是上个月的日期
+            dayStr = '<span>' + (lastEndDay --) + '</span>';
+        } else if (i >= curEndDay + week) { //这是下个月的日期
+            dayStr += '<span' + (curEndDay ++) + '</span>' ;
+        } else{ //这是本月日期
+            let cl = '';
+            if (i-week+1 === d.getDate()) {
+                cl = 'active';
+            }
+            dayStr += '<span class="'+cl+'">' + (i-week+1) + '</span>';
+        }
+    }
+    div.innerHTML = dayStr;
+</script>
+</body>
+</html>

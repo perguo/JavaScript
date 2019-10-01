@@ -26,7 +26,7 @@
             console.log(this.innerText);
         }
     }*/
-    // 还可以这样写
+    // 事件源对象写更好，效率高，不需for循环
     /*var ul = document.getElementsByTagName('ul')[0];
     ul.onclick = function (e) {
         var event = e || window.event;

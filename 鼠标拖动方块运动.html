@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标拖动方块运动</title>
+</head>
+<body>
+<div style="width: 100px;height: 100px;background-color:red;position: absolute;left: 0;top: 0;"></div>
+<script type="text/javascript">
+    /*let div = document.getElementsByTagName('div')[0];
+    let disX,
+        disY;
+    div.onmousedown = function (e) {
+        //var e = e || window.event;
+        disX = e.pageX - parseInt(div.style.left);
+        disY = e.pageY - parseInt(div.style.top);
+        document.onmousemove = function (e) {
+            div.style.left = e.pageX - disX + "px";
+            div.style.top = e.pageY - disY + "px";
+        };
+        document.onmouseup = function () {
+            div.onmousemove = null;
+        }
+    }*/
+    
+    //封装成函数
+    /*function drag(elem) {
+        let disX,
+            disY;
+        function addEvent (elem, type, handle) {
+            if (elem.addEventListener) {
+                elem.addEventListener(type, handle, false);
+            } else if (elem.attachEvent) {
+                elem.attachEvent('on' + type, function () {
+                    handle.call(elem);
+                })
+            } else {
+                elem['on' + type] = handle;
+            }
+        }
+        addEvent(elem, 'mousedown', function (e) {
+            var event = e || window.event;
+            disX = event.clientX - parseInt(getStyle(elem, 'left'));
+            disY = event.clientY - parseInt(getStyle(elem, 'top'));
+            addEvent(document, 'mouseover', mouseMove);
+            addEvent(document, 'mouseup', mouseUp);
+            stopBubble(event);
+            cancelHandler(event);
+        });
+        function mouseMove(e) {
+            var event = e || window.event;
+            elem.style.left = event.clientX - disX + "px";
+            elem.style.top = event.clientY - disY + "px";
+        }
+        function mouseUp(e) {
+            var event = e || window.event;
+            removeEvent(document, 'mousemove', mouseMove);
+            removeEvent(document, 'mouseup', mouseUp);
+        }
+    }
+    drag();*/
+
+    /*document.onkeypress = function (e) {
+        console.log(e);
+    }*/
+
+
+</script>
+</body>
+</html>
