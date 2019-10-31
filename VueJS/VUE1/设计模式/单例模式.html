@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show{
+            width: 100px;
+            height: 100px;
+            border: solid 1px red;
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!-- 单例模式 ： 有且只有一个对象
+ 作用：判断有没有这个对象，有的话，就调用；没有的话，就创建
+ 可防止内存浪费。当被其它变量调用完后设置变量值为null，会被GC
+-->
+<button id="open">打开</button>
+<button id="delete">关闭</button>
+<script>
+    let Model = function (id, html) {
+        this.id = id;
+        this.html = html;
+        this.open = false;
+    };
+
+    const createInstance = (function () {
+        let instance;
+        return function () {
+            return instance || new Model("model", "我是一个弹窗"); // 单例
+        }
+    })();
+
+    Model.prototype.create = function () {
+      if (!this.open) { // 如果没有打开就创建一个div
+          const model = document.createElement('div');
+          model.innerHTML = this.html;
+          model.id = this.id;
+          document.body.appendChild(model);
+          this.open = true;
+          model.classList.add('show');
+      }
+    };
+    Model.prototype.delete = function () {
+        if (this.open){ // 如果打开了，就删除这个div
+            let model = document.getElementById(this.id);
+            document.body.removeChild(model);
+            model.classList.add('hide');
+            this.open = false;
+        }
+    };
+
+    //把open和delete封装在一个对象operate里
+    const operate = {
+        setModel: null, //setModel: 创建的窗口对象
+        open: function () {
+            this.setModel = createInstance();
+            this.setModel.create();
+        },
+        delete: function () {
+            this.setModel ? this.setModel.delete() : "";
+        }
+    };
+
+    document.getElementById('open').onclick = function () {
+        operate.open();
+    };
+    document.getElementById('delete').onclick = function () {
+        operate.delete();
+    }
+
+</script>
+
+</body>
+</html>

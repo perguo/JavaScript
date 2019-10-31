@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-router 子路由嵌套  传值</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home">主页</router-link>
+    <router-link to="/user">用户界面</router-link>
+    <div>
+        <router-view></router-view>
+    </div>
+</div>
+<template id="user">
+        <div>
+            <h3>用户信息</h3>
+            <div>
+                <router-link to="/user/login">登录</router-link>
+                <router-link to="/user/reg">注册</router-link>
+            </div>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div>
+</template>
+
+
+<script>
+    //定义组件
+    let home = {
+        template: "<h1>我是主页</h1>"
+    };
+    let user = {
+        template: "#user"
+    };
+    let login = {
+        template: "<h2>login in</h2>"
+    };
+    let reg = {
+        template: "<h2>register in</h2>"
+    };
+
+    let routes = [
+        { path: "/home", component: home},
+        {
+            path: "/user",
+            component: user,
+            children: [
+                { path: "login", component: login },
+                { path: "reg", component: reg },
+            ]
+        }
+    ];
+    let router = new VueRouter({
+        routes,
+        mode: "history"
+    });
+
+    const vm = new Vue({
+        el: "#app",
+        router
+    })
+</script>
+</body>
+</html>

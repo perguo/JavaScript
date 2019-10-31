@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref 引用</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .squareBox{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--
+1. ref 被用来给DOM元素和子组件注册引用信息。
+2. 引用信息会根据父组件的 $refs 对象进行注册
+3. 如果在普通的DOM对象上引用，引用信息就是改对象；如果在子组件上就是组件实例对象。
+4. 只要想在Vue中直接操作DOM元素，就必须用ref属性进行注册
+5. 当ref 同名时，后面的会覆盖前面的，引用指向的是最后一个元素
+6. 在 v-for 时添加引用，引用的值类型是数组，数组里面是一个个的DOM对象/组件实例对象
+-->
+<div id="app">
+    <square-change ref="cmp"></square-change><!--组件的引用  是组件的实例对象-->
+    <button @click="handleClick">click</button>
+</div>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          handleClick () {
+              console.log(this.$refs)
+          }
+        },
+        components: {
+            squareChange: {
+                data () {
+                    return{
+                        colorArr: ['red', 'orange', 'yellow', 'green']
+                    }
+                },
+                template: `
+                <div>
+                    <button v-for="color in colorArr"
+                    :key="color"
+                    :style="{backgroundColor: color}"
+                    @click="handleClick(color)"
+                    :data-color="color">{{ color }}</button>
+                    <div class="squareBox" ref="squareBox"></div>
+                </div>
+                `,
+                methods: {
+                    handleClick (color) {
+                        //console.log(color);
+                        <!--给dom元素添加data数据，数据可到dataset里去取-->
+                        //console.log(e.target.dataset.color)
+                        const squareBox = this.$refs.squareBox;
+                        squareBox.style.backgroundColor = color;
+                        console.log(this.$refs)
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

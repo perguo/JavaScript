@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<!-- v-model 数据双向绑定 -->
+<!-- input text -->
+<!-- textarea -->
+<!-- input checkbox 复选框-->
+<!-- input radio   单选框-->
+<!-- select  下拉框 -->
+
+
+<div id="app">
+   <!--<input type="text" v-model="value">
+    {{ value }}-->
+
+   <!-- <textarea v-model="content"></textarea>
+    {{ content }}-->
+
+    <!--<input type="checkbox" v-model="checked">
+    {{ checked }}-->
+    <!--绑定多个复选框-->
+   <!-- <lable for="html">html</lable>
+    <input type="checkbox" value="html" id="html" v-model="checkedList">
+    <lable for="js">js</lable>
+    <input type="checkbox" value="js" id="js" v-model="checkedList">
+    <lable for="vue">vue</lable>
+    <input type="checkbox" value="vue" id="vue" v-model="checkedList">
+    {{ checkedList }}-->
+
+   <!-- <lable for="html">html</lable>
+    <input type="radio" value="html" id="html" v-model="picked">
+    <lable for="js">js</lable>
+    <input type="radio" value="js" id="js" v-model="picked">
+    <lable for="vue">vue</lable>
+    <input type="radio" value="vue" id="vue" v-model="picked">
+    {{ picked }}-->
+
+    <select name="" id="" v-model="select">
+    <!--<select name="" id="" v-model="select" multiple>   可多选 ，按住ctrl键-->
+        <option value="" disabled>请选择</option>
+        <option value="html">html</option>
+        <option value="js">js</option>
+        <option value="vue">vue</option>
+    </select>
+    {{ select }}
+
+
+
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            value: '',
+            content: '',
+            checked: true,
+            checkedList: [],
+            picked: '',
+            select: ''
+        }
+    })
+</script>
+</body>
+</html>

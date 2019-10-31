@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch   computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+    <!--姓名：{{ name }} 年龄：{{ age }}-->
+   <!-- {{ desc() }}-->
+    {{ desc }}
+    {{ looks }}
+</div>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data: {
+            name: "杉杉",
+            age: 18,
+            looks: 'beautiful',
+            desc: '姓名 杉杉 年龄 18'
+        },
+        methods: {
+            //当改变looks时，也会执行desc()
+            desc () {
+                //return `姓名 ${this.name}  年龄 ${this.age}`
+            }
+        },
+        watch: {
+            name () {
+                //当改变looks时，不会执行desc()
+                console.log("-----watch--------");
+                //this.desc = `姓名 ${this.name}  年龄 ${this.age}`
+            }
+        },
+        computed: {
+            //只有当desc里的属性值改变时，才会执行desc方法
+            desc () {
+                console.log("------computed---------")
+                return  `姓名 ${this.name}  年龄 ${this.age}`;
+            }
+        }
+    })
+</script>
+</body>
+</html>

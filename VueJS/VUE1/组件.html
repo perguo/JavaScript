@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件  局部组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<!--<body>
+<div id="app">
+    <hello-world></hello-world>
+    <hello-world></hello-world>
+    <hello-world></hello-world>
+    &lt;!&ndash;<hello></hello>&ndash;&gt;
+</div>
+<script>
+    //全局组件  定义在vue的构造函数上
+    Vue.component('helloWorld', {
+        data () {
+            return {
+                msg: 'hello world'
+            }
+        },
+        template: `
+           <div>
+               &lt;!&ndash;<span>hello world</span>&ndash;&gt;
+               <button @click="handleClick">点击</button>
+               <div>{{ msg }}</div>
+           </div>
+
+        `,
+        methods: {
+            handleClick () {
+                this.msg = "goodbye"
+            }
+        }
+    });
+    const vm = new Vue({
+        el: "#app",
+        data: {
+        },
+        //局部组件  在哪一个vue的实例上定义，就在哪里使用
+        components: {
+            /*'hello': {
+                template: `<div>how are you</div>`
+            }*/
+            helloWorld: {
+                template: `<div>how are you</div>`
+            }
+        }
+    })
+</script>
+</body>-->
+
+<body>
+<!-- 组件数据传输 -->
+<!-- 父 -> 子 传值 props  校验  v-bind="Object" -->
+<!-- 子 -> 父 传值 $emit('handle', value) -->
+<div id="app">
+   <!-- <my-content :title="title" :content="content" :count="count"></my-content>
+    <my-content :title="title" :content="content" :count="count"></my-content>-->
+
+    <my-content v-bind="childrenInfo" @add="handleAdd"></my-content>
+    父组件的count: {{ childrenInfo.count }}
+    <button @click="handleClick">点击</button>
+</div>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            childrenInfo: {
+                title: "脱口秀大会",
+                content: "开放麦残酷淘汰赛，只为挑选更优秀的脱口秀，锁定腾讯视频，每周五晚不见不散",
+                count: 0
+            },
+            title: "脱口秀大会",
+            content: "开放麦残酷淘汰赛，只为挑选更优秀的脱口秀，锁定腾讯视频，每周五晚不见不散",
+            count: 0
+        },
+        methods: {
+            handleAdd (num) {
+                this.childrenInfo.count += num;
+            },
+            handleClick () {
+                this.childrenInfo.title = "吐槽大会"
+            }
+        },
+        components: {
+            myContent: {
+                //props: ['title', 'content'],
+                //还可以筛选
+                props: {
+                    title: {
+                        type: String,
+                        default: "李诞" //默认值，当:title没写的时候显示
+                    },
+                    content: {
+                        type: Number,
+                        required: true, //必须的属性，当没有:content="content"时报错
+                        //还可以用函数来进行校对 validator, 返回true则校验成功
+                        validator (val) {
+                            return val > 100
+                        }
+                    },
+                    count: {
+                        type: Number
+                    }
+                },
+                data () {
+                    return{
+                        //ownCount: this.count
+                    }
+                },
+                template: `
+                   <div>
+                      <h4>{{ title }}</h4>
+                      <p>{{ content }}</p>
+                      <!--<div>{{ ownCount }}</div>-->
+                      <div>子组件的count: {{ count }}</div>
+                      <button @click="handleClick">add</button>
+                   </div>
+                `,
+                methods: {
+                    handleClick () {
+                        //this.ownCount ++;
+                        //this.$emit('add', this.ownCount)
+                        this.$emit('add', 1)
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

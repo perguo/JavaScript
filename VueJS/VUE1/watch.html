@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch 侦听器</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <!-- <input type="text" v-model="msg">-->
+    <input type="text" v-model="user.name">
+</div>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "aaa",
+            user: {
+                name: "Tom"
+            }
+        },
+        //watch: 当数据发生变动时触发
+        watch: {
+            /*msg: function (newMsg, oldMsg) {
+                console.log("原始数据:" + oldMsg + "新数据：" + newMsg)
+            }*/
+            //当为对象的时候
+           /* user: function (newMsg, oldMsg) {
+                console.log("原始数据:" + oldMsg.name + "新数据：" + newMsg.name)
+            }*/   //行不通
+           /* "user.name": function (newMsg, oldMsg) {
+                console.log("原始数据:" + oldMsg + "新数据：" + newMsg)
+            }*/   //可以，但对 对象有专门的方法 handler
+            user: {
+                handler: function (newMsg, oldMsg) {
+                    console.log("原始数据:" + oldMsg.name + "新数据：" + newMsg.name)
+                },
+                deep: true //深度监听，当对象中的属性发生变化时会监听
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>

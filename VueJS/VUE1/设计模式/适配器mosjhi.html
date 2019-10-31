@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>适配器模式</title>
+</head>
+<body>
+
+<!--
+<script>
+    const googleMap = {
+        show: function () {
+            console.log("开始渲染谷歌地图")
+        }
+    };
+    const baiduMap = {
+        display: function () {
+            console.log("开始渲染百度地图");
+        }
+    };
+    //两个地图的接口不一样，现添加一个适配器，将百度地图的接口改掉，但不是在原有程序里修改
+    const baiduAdapter = {
+        show: function () {
+            return baiduMap.display();
+        }
+    };
+    const renderMap = function (map) {
+        if (map.show instanceof function ) {
+            map.show();
+        }
+    };
+    renderMap(googleMap);
+    renderMap(baiduMap);
+</script>
+-->
+
+<script>
+    const getBeijingCity = (function () {
+        const beijingCity = [
+            { name: "朝阳区", id: 11},
+            { name: "海淀区", id: 12},
+            { name: "大庆区", id: 13},
+        ];
+        return beijingCity;
+    })();
+    const render = function (fn) {
+        console.log("开始渲染北京市地图");
+        document.write(JSON.stringify(fn));
+    };
+
+    const addressAdapter = function (oldAddressfn) {
+        let address = {};
+        oldAddressfn.forEach(function (c) {
+            address[c.name] = c.id;
+        });
+        return address;
+    };
+    render(getBeijingCity);
+    //如何实现传出这种数据格式："朝阳区": 11, ...
+    //使用适配器 addressAdapter
+    render(addressAdapter(getBeijingCity));
+</script>
+</body>
+</html>

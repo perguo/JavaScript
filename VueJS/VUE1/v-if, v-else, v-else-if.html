@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+        .blue{
+            background: blue;
+        }
+        .red{
+            background: red;
+        }
+        .pink{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<!-- 点击按钮时，div样式消失，再点击时出现 -->
+<!-- v-if 能够控制元素的显示与隐藏； v-if="true"时，显示；v-if="false"时,隐藏 -->
+<!--<div id="app">
+    <button @click="handleClick">{{ text }}</button>
+    <div class="box blue" v-if="show"></div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            text: "隐藏"
+        },
+        methods: {
+            handleClick () {
+                this.show = !this.show;
+                this.text = this.show ? "隐藏": "显示";
+            }
+        }
+    });
+</script>-->
+
+
+<!-- v-else 要与v-if配合使用  与v-if展示效果不会同时出现-->
+<!-- 他俩之前不能有其他的元素，会报错； 可以加else-if ==> v-else-if -->
+<div id="app">
+   <!-- <button @click="handleClick">{{ text }}</button>-->
+    <!--<div class="box blue" v-if="num === 0"></div>
+    &lt;!&ndash;<p>1234567890</p>     报错&ndash;&gt;
+    <div class="box pink" v-else-if="num === 1"></div>
+    <div class="box red" v-else></div>-->
+    <!--当我们向同时控制两个div的显示与隐藏时，可以将它们放在一个div里<div v-if="show">
+    但是这样多加了一个dom元素，影响性能；解决：<template>, 不会在html里添加
+    -->
+    <!--<template v-if="show">
+        <div class="box pink"></div>
+        <div class="box red"></div>
+    </template>-->
+
+    <!-- v-show 功能与v-if一样
+     区别：v-if在为false时 移除dom元素；而v-show在为false时  在dom元素里加了样式：display: none
+     1. 需要频繁的切换显示与隐藏的时候用 v-show;只需切换一次的时候用 v-if
+     2. v-if在template里有效，v-show在template里无效
+     -->
+    <template>
+        <div class="box pink" style="width: 300px;height: 300px;" v-show="show">
+            <div><button @click="handleClick">click</button></div>
+        </div>
+        <div class="box red" v-show="!show"></div>
+    </template>
+</div>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            text: "隐藏",
+            num: 0
+        },
+        methods: {
+            handleClick () {
+                this.show = !this.show;
+                //this.text = this.show ? "隐藏": "显示";
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代理模式</title>
+</head>
+<body>
+<!-- 代理模式： 单人做单事
+比如：明星接广告。明星不是自己去接触广告商和费用等信息，而是经纪人去谈妥了，通知明星，然后明星去拍+拿钱-->
+
+<script>
+    const ad = function (price) {
+        this.price = price;
+    };
+    ad.prototype.getPrice = function () {
+        return this.price;
+    };
+    const assistant = { //助理决定要不要接这个广告
+        init: function (ad) {
+            const money = ad.getPrice();
+            if (money > 300) {
+                this.receiveAd(money);
+            } else {
+                this.rejectAd(money);
+            }
+        },
+        receiveAd: function (price) {
+            star.receiveAd(price);
+        },
+        rejectAd: function () {
+            star.rejectAd();
+        }
+    };
+    const star = { //star只管拍广告拿钱，其它的事全部代理来做
+        receiveAd: function (price) {
+            console.log("广告费为：" + price + " 安排时间，我去拍")
+        },
+        rejectAd: function () {
+            console.log("广告费太low，已拒绝")
+        }
+    };
+    assistant.init(new ad(10));
+    assistant.init(new ad(500));
+</script>
+</body>
+</html>

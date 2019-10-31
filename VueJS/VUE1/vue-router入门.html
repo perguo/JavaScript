@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-router</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home">主页</router-link>
+    <router-link to="/news">新闻</router-link>
+    <div>
+        <router-view></router-view>
+    </div>
+</div>
+
+
+<script>
+    //定义组件
+    let home = {
+        template: "<h1>我是主页</h1>"
+    };
+    let news = {
+        template: "<h1>我是新闻</h1>"
+    };
+    //配置路由
+    let routes = [
+        { path: "/home", component: home},
+        { path: "/news", component: news},
+        { path: "/", redirect: "/home"},
+
+    ];
+    //实例化一个vue-router对象
+    let router = new VueRouter({
+        routes,
+        mode: "history"
+    });
+    //把路由对象挂载到vue对象上面
+
+    const vm = new Vue({
+        el: "#app",
+        router,
+        data: {
+
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父组件调子组件数据</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+    <father></father>
+</div>
+
+<template id="t1">
+    <div>
+        我是父组件， {{ attr1 }}
+        <span style="color: green">{{ attr2 }}</span>
+        <son @e-word="getData"></son><!-- 第二步： 自定义方法e-word和父组件做对接-->
+    </div>
+</template>
+<template id="t2">
+    <div style="color: red;">
+        我是子组件，{{ attr2 }}
+    </div>
+</template>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        components: {
+            "father": {
+                template: "#t1",
+                data () {
+                    return {
+                        attr1: "我是父组件数据",
+                        attr2: ""
+                    }
+                },
+                methods: {
+                  getData(attr2){ //第三步：接收数据
+                      this.attr2 = attr2;
+                  }
+                },
+                components: {
+                    "son": {
+                        template: "#t2",
+                        data () {
+                            return {
+                                attr2: "我是子组件数据"
+                            }
+                        },
+                        mounted () { //第一步： 调emit方法，触发自定义事件e-word，发送数据
+                            this.$emit("e-word", this.attr2)
+                        }
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子组件调父组件数据</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+    <father></father>
+</div>
+
+<template id="t1">
+   <div>
+       我是父组件， {{ attr1 }}
+       <son :attr1="attr1"></son>
+   </div>
+</template>
+<template id="t2">
+   <div style="color: red;">
+       我是子组件，{{ attr2 }}  {{ attr1 }}
+   </div>
+</template>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        components: {
+            "father": {
+                template: "#t1",
+                data () {
+                    return {
+                        attr1: "我是父组件数据"
+                    }
+                },
+                components: {
+                    "son": {
+                        template: "#t2",
+                        data () {
+                            return {
+                                attr2: "我是子组件数据"
+                            }
+                        },
+                        props: ["attr1"]
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

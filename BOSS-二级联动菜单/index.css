@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+}
+.menu{
+    width: 600px;
+    margin: 100px auto;
+}
+.menu .cityShow{
+    border: 1px solid #7dd9ff;
+    width: 400px;
+    height: 50px;
+    background: #ffffff;
+}
+.menu .cityShow span{
+    height: 100%;
+    line-height: 50px;
+    margin-left: 20px;
+    color: #61687C;
+}
+/*
+.menu .citySelect span::after{
+    content: '';
+    width: 1px;
+    height: 30px;
+    margin: auto 20px;
+    background: #f6f6;
+}*/
+.menu .province{
+    float: left;
+    color: #8d92a1;
+    cursor: pointer;
+}
+.menu .city{
+    float: left;
+    margin-left: 100px;
+    color: #8d92a1;
+    cursor: pointer;
+}
+.menu .province .provinceSelect{
+    margin-left: 20px;;
+}
+.menu .province .provinceSelect li,
+.menu .city .citySelect li{
+    margin-top: 10px;
+}
+.menu .city .citySelect{
+
+}

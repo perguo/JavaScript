@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--{{ msg2 }}
+    {{ msgReversg() }}-->
+
+    <button @click="handleClick">点击</button>
+
+</div>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "apple peach bea",
+            num: 10
+        },
+       /* computed: {
+            msg2: function () {
+                return this.msg.split(" ").reverse().join(" ");
+            }
+        },
+        methods: {
+            msgReversg () {
+                return this.msg.split(" ").reverse().join(" ");
+            }
+        }*/
+        //上面的方法和计算属性 显示结果一样
+        //思考： 计算属性和方法有什么区别
+        computed: {
+            Num: function () {
+                console.log(new Date());
+                return this.num - 1;
+            }
+        },
+        methods: {
+            changeNum () {
+                console.log(new Date());
+                return this.num - 1;
+            },
+            handleClick() {
+                  setInterval( () => {
+                      //对比下列两种结果
+                      // console.log(vm.changeNum())
+                       console.log(vm.Num)
+
+                      //1. 计算属性只能对属性进行逻辑操作，二方法可以对任何事务进行操作
+                      //2. 计算属性对数据进行操作后，会将数据缓存到内存里，以后再被调用时直接从缓存里获取。所以，计算属性的效率更高一些
+            },1000)
+    }
+        }
+
+    });
+
+</script>
+</body>
+</html>

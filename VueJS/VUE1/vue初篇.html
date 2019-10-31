@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+</head>
+<body>
+<div id="app">
+   <!-- {{ 1+1 }}
+    {{ 'abc' }}
+    {{ [1, 2, 3] }}
+    {{ {a: 1, b: 2} }}
+    {{ true }}
+    {{ undefined }}
+    {{ null }}-->
+
+    <!--{{}}里只能写一些JS表达式，不能写js语句会报错
+    {{ var a = 10,; return a; }}
+    -->
+
+    {{ msg }}
+    <input v-model="msg">
+</div>
+
+
+
+<script>
+    //插值表达式：{{  }} (也叫moustache语法)
+    //new产生一个对象，里面的属性和方法可用 $ 开头 取到  如：vm.a -> 10; vm.$data -> Object{ ... }
+    // console:  vm.$el -> <div id="app"> ... </div>;  $el取到的是挂载到Vue上的元素
+    const vm = new Vue({
+        el: '#app',
+        data: { //存放数据
+            a: 10,
+            msg: "hello",
+
+        }
+    });
+    vm.a = 20;
+    vm.a = 100;
+    console.log(vm.a); //100
+    console.log(vm.$el.innerHTML); //10
+    vm.$nextTick( () => {
+        console.log(vm.$el.innerHTML); //100
+    } )
+</script>
+</body>
+</html>

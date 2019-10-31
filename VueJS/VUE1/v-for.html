@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<!-- arr: (item, index)  in arr-->
+<!-- obj: (value, key, index) in obj -->
+<!-- num: num in Number  从1到Number-->
+
+<!-- key number/string 唯一的 -->
+
+<!-- 更改数组
+     1. 不能通过索引的方式去更改数组，不会渲染
+     2. 不能通过更改长度的方式去更改数组，不会渲染
+     3. 数组变异方法：push, pop, unshift, shift, reverse, sort, splice
+ -->
+<!--更改对象
+    1. 向对象内添加或删除属性不会渲染页面
+    2. vm.$set() 实现更改对象
+-->
+<!--以上不能更改的原因，不是pop等方法的问题，而是vue底层 Object.defineProperty()的问题-->
+<!-- Object.defineProperty()  实现数据劫持 -->
+
+<div id="app">
+   <!-- <p v-for="(item,index) in arr">{{ item }} - {{ index }}</p>
+    <p v-for="(value, key, index) in obj">{{ value }} - {{ key }} - {{ index }}</p>
+    <p v-for="num in 3">{{ num }}</p>
+    <p v-for="str in 'good'">{{ str }}</p>-->
+    <ul>
+        <!--key值不建议用index--><!--
+        <li v-for="(fruit, index) in fruitArr" :key="fruit">{{ fruit }}&#45;&#45;&#45;&#45;{{ index }}</li>&lt;!&ndash;就地复用&ndash;&gt;
+        <li v-for="(fruit, index) in fruitArr" :key="index">{{ fruit }}&#45;&#45;&#45;&#45;{{ index }}</li>&lt;!&ndash;改变dom&ndash;&gt;
+        -->
+        <!--过滤掉重复的，借用对象-->
+        <!--<li v-for="(fruit, index) in fruitArr1" key="fruit.id">{{ fruit.name }}</li>-->
+    </ul>
+    <!--key值的运用-->
+    <div v-if="show">
+        name: <input key="name">
+    </div>
+    <div v-else>
+        password: <input name="password">
+    </div>
+    <button @click="handleClick">click</button>
+</div>
+
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            show: true,
+            arr: ['html', 'css', 'js', 'vue'],
+            obj: {
+                name: "shanshan",
+                age: 18,
+                looks: "beautiful"
+            },
+            fruitArr: ["apple", "banana", "peach", "pear"],
+            fruitArr1: [{
+                    name: 'apple',
+                    id: '001'
+                },{
+                    name: 'banana',
+                    id: '002'
+                },{
+                    name: 'peach',
+                    id: '003'
+                },{
+                    name: 'apple',
+                    id: '004'
+                }
+            ]
+        },
+        methods: {
+            handleClick () {
+                this.show = !this.show
+            }
+        }
+    })
+    setInterval(()=>{
+        vm.fruitArr.reverse()
+    },2000)
+</script>
+</body>
+</html>
