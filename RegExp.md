@@ -112,7 +112,7 @@ var str = "abc";
 ```
 var reg = /\w?/g;
 var str = "abc";
-//str.match(reg)回车 --> ["a", "a", "a"]
+//str.match(reg)回车 --> ["a", "b", "c", ""]
 ```
 ### 3. n{x}  表示取x个进行匹配
 ```
