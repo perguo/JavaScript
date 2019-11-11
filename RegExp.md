@@ -306,3 +306,6 @@ console.log(str.replace(reg, "."));
     console.log(str.replace(reg, "."));
 ```
 
+
+##  练习：
+### 1.匹配手机号：reg = /^[1][3,4,5,7,8][0-9]{9}$/;
